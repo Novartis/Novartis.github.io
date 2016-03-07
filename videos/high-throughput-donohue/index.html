@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1">
+    <!-- TODO-->
+    <meta name="keywords">
+    <meta name="description">
+    <meta name="author">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/offcanvas.css">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+    <script src="../../assets/js/jquery-1.10.2.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/offcanvas.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      
+    </script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+    <!-- compiled CSS-->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+  </head>
+  <body>
+    <div role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button><a href="../../" class="navbar-brand">NIBR Open Source</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://nibr.com" target="_blank">NIBR</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://nibr.com/"><img src="../../assets/images/novartis-logo.png"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="video container">
+        <div id="theater" style="width:100%;position:relative;text-align:center;background-color:black;">
+          <!-- 1. The <iframe> (and video player) will replace this <div> tag.-->
+          <div id="player"></div>
+          <script>var VIDEO_ID = "EwzhEAZRX5o";</script>
+          <script>
+            // 2. This code loads the IFrame Player API code asynchronously.
+            var tag = document.createElement('script');
+            
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            
+            // 3. This function creates an <iframe> (and YouTube player)
+            //    after the API code downloads.
+            var player;
+            function onYouTubeIframeAPIReady() {
+              player = new YT.Player('player', {
+                height: '390',
+                width: '640',
+                videoId: VIDEO_ID,
+                events: {
+                  'onReady': onPlayerReady,
+                  'onStateChange': onPlayerStateChange
+                },
+                playerVars: {
+                  showinfo: 0,
+                  rel: 0
+                }
+              });
+            }
+            
+            function pad(n){return (n<10?'0':'')+n}
+            
+            // 4. The API will call this function when the video player is ready.
+            function onPlayerReady(event) {
+              var player = event.target;
+              var duration = player.getDuration(),
+                $button = $('#play-video'),
+                seconds = pad(duration % 60),
+                minutes = (duration-seconds) / 60;
+              $button.find('.btn-label').text(' Watch video ('+minutes+':'+seconds+')');
+              $button.click(function(){
+                player.playVideo();
+                $('#player-overlay').hide();
+                $('#theater').animate({'height': '600px'});
+              });
+            }
+            
+            // 5. The API calls this function when the player's state changes.
+            //    The function indicates that when playing a video (state=1),
+            //    the player should play for six seconds and then stop.
+            function onPlayerStateChange(event) {
+            }
+          </script>
+          <div id="player-overlay"><img src="still.png" class="video-preview">
+            <div style="padding: 0 2em;">
+              <h1>Robots Speed Drug Discovery</h1>
+              <h2>Elaine Donohue</h2>
+              <center><a id="play-video" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-play"></span><span class="btn-label"> Loading video...</span></a></center>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <p><p>See how robots are used to screen 1.6 million candidate compounds against potential drug targets. Automation reduces months and years of effort to days and weeks. This is an overview video of High Throughput Screening.</p>
+</p>
+            <div></div>
+          </div>
+          <div class="col-md-6">
+            <h3>Elaine Donohue</h3>
+            <p><p>Elaine Donohue is a Scientist II at the NIBR Center for Proteomic Chemistry.</p>
+</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer nibr-small-padding-top">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nibr-no-padding-left-right nibr-small-padding-top">© 2016 Novartis AG <a href="http://nibr.com/terms-use" target="_blank">Terms of use</a> | <a href="http://nibr.com/privacy-policy" target="_blank">Privacy policy</a> | <a href="https://www.nibr.com/safe-harbor-standards" target="_blank">Safe harbor</a> | <a href="mailto:open.source@novartis.com">open.source@novartis.com</a></div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nibr-no-padding-left-right">
+          <div class="nibr-text-right"><a href="https://www.facebook.com/novartis"><img src="/assets/images/facebook-icon.png" alt="Facebook" title="Facebook" class="footer-spacing"></a><a href="https://www.linkedin.com/company/novartis-institutes-for-biomedical-research"><img src="/assets/images/linkedin-icon.png" alt="LinkedIn" title="LinkedIn" class="footer-spacing"></a><a href="https://twitter.com/NovartisScience"><img src="/assets/images/twitter-icon.png" alt="Follow us on Twitter" title="Follow us on Twitter" class="footer-spacing"></a>
+            <!--a(href='/feed.xml')img.footer-spacing(src='/assets/images/feed-icon-28x28.png', alt='Subscribe to our blog', title='Subscribe to our blog')
+            -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
