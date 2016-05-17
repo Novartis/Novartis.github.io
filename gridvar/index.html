@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1">
+    <!-- TODO-->
+    <meta name="keywords">
+    <meta name="description">
+    <meta name="author">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/offcanvas.css">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+    <script src="../../assets/js/jquery-1.10.2.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/offcanvas.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      
+    </script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+    <!-- compiled CSS-->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+  </head>
+  <body>
+    <div role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button><a href="../../" class="navbar-brand">NIBR Open Source</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://nibr.com" target="_blank">NIBR</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://nibr.com/"><img src="../../assets/images/novartis-logo.png"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="project container">
+        <h1>GridVar</h1><img style="float:right;" class="scale-image">
+        <p><p>GridVar is a jQuery plugin that visualizes multi-dimensional datasets as layers organized in a row-column format. At each cell (i.e., rectangle at the intersection of a row and column), GridVar displays your data as a background color (like a color/heat map) and/or a glyph (shape). This enables different characteristics of your dataset to be layered on top of each other. For more information on usage, required libraries, and other developer information, please see <a href="https://github.com/Novartis/gridvar">our documentation on GitHub</a>.</p>
+</p>
+        <center><a href="https://github.com/Novartis/gridvar" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span> GitHub project</a> <a href="https://github.com/Novartis/gridvar/releases/latest" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-download"></span> Download GridVar</a>
+        </center>
+        <div style="clear:both;">
+    <h2>Examples</h2>
+
+    <ul>
+        <li><a href='#genomicsExample'>Genomics Example</a></li>
+        <li><a href='#weatherExample'>Weather Example</a></li>
+    </ul>
+
+    <h3><a id="genomicsExample"></a>Genomics Example</h3>
+
+    <p>
+        Our inspiration for developing GridVar was a figure from
+        <a target="_blank" href='http://www.nature.com/nature/journal/v486/n7403/full/nature11154.html'>Sequence analysis of mutations
+        and translocations across breast cancer subtypes</a> published in <i>Nature</i>.  Users can interact with the
+        visualization by hovering over a cell to view a popup with more details, clicking on labels, and by
+        reordering the rows and columns by selecting actions in the dropdowns.
+    </p>
+
+    <div id="tissueSampleOrder" class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-transfer"></span> Order Tissue Samples (Columns) By... <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a class='nibr-pointer' id="tissueTopSort">Top gene set mutation frequency</a></li>
+            <li><a class='nibr-pointer' id='tissueGlobalSort'>Global gene set mutation frequency</a></li>
+        </ul>
+    </div>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Order Genes (Rows) By... <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li><a class='nibr-pointer' id="geneMissenseMutationSort">Missense mutations only</a></li>
+            <li><a class='nibr-pointer' id="geneNonSynonymousMutationSort">Other Non-synonymous mutations only</a></li>
+            <li><a class='nibr-pointer' id='geneAllMutationSort'>All mutations</a></li>
+        </ul>
+    </div>
+
+
+    <div id='gridVarGenomics'></div>
+
+    <p>
+        We've taken data (<a target="_blank" href='http://www.nature.com/nature/journal/v486/n7403/extref/nature11154-s2.xls'>Supplementary
+        Table 4</a> from the aforementioned Nature paper) to create the above example.
+        Tissue samples (columns) are initially ordered by total mutations per sample in descending order across the
+        entire set of genes. Similarly, genes (rows) are ordered by the number of mutations across samples in descending order.
+    </p>
+
+    <p>
+        Alternate orderings for both tissue samples and genes enable visual exploration of the view.  By restricting
+        the tissue samples mutation counts to just the top 6 mutated genes, tissue samples can be reordered.  This
+        enables our users to see the impact of mutations across the global set or restricted to a subset.  When
+        selecting this option, users will see the samples with mutations shift to the left.
+    </p>
+
+    <p>
+        To understand gain and/or loss of function, our users can adjust the gene mutation ordering by switching the
+        gene order based on the frequency of mutation types: missense, other non-synonymous, or both.  The gene rows will
+        reorder and the histogram will update based on this selection.
+    </p>
+
+    <h3>Example code for initializing GridVar</h3>
+
+    <pre><code class="javascript">$('#gridVarGenomics').gridVar({
+    cellHeight: 30,
+    cellWidth: 9,
+    rowOrder: ['TP53', 'PIK3CA', 'AKT1',
+        'CBFB', 'GATA3', 'MAP3K1'],
+        columnOrder: ['BR-M-191','BR-M-037',
+        'BR-V-043','BR-V-027','BR-V-067',
+        ...],
+    dataMapping: {
+        data: [
+            ['AKT1', 'BR-V-016', ['Missense']],
+            ['AKT1', 'BR-V-017', ['Missense']],
+            ['TP53', 'BR-M-123', ['other non-synonymous']],
+            ...],
+        dataIndex: {
+            rowKey: 0,
+            columnKey: 1,
+            mutation: 2
+        }
+    },
+    dataDisplayMapping: [{
+        dataType: 'mutation',
+        mappings: {
+            Missense: '#bb88bb',
+            'other non-synonymous': '#777777'
+        }
+    }],
+    histogramMapping: {
+        data: histogramData,
+        label: 'Mut. Frequency'
+    },
+    rowLabelClicked: function(event, data) {
+        alert(data + ' clicked!');
+    }
+});</code></pre>
+
+    <h3>Example code for reordering rows</h3>
+    <pre><code class="javascript">$('#gridVarGenomics').gridVar('option', 'rowOrder', ['TP53', 'PIK3CA', 'AKT1', 'CBFB', 'GATA3', 'MAP3K1']);</code></pre>
+
+    <h3>Example code for reordering columns</h3>
+    <pre><code class="javascript">$('#gridVarGenomics').gridVar('option', 'columnOrder', ['BR-M-191','BR-M-037','BR-V-043','BR-V-027','BR-V-067']);</code></pre>
+
+
+    <h2><a id="weatherExample"></a>Weather Example</h2>
+
+    <p>Although GridVar was developed for a genomics use case, GridVar can visualize all
+        types of categorical data. In the example below, GridVar displays climate data from the
+        <a target="_blank" href="http://www1.ncdc.noaa.gov/pub/data/ccd-data/CCD-2012.pdf">Comparative Climate Data for the U.S. through 2012</a>
+        from the National Climate Data Center. Each row is one city per state, including Washington
+        D.C., Puerto Rico, and Pacific Islands (i.e. Guam), each column is a month, and at the intersection the example
+        displays the highest recorded temperature per month and the days in those months that were or weren't
+        cloudy.
+    </p>
+
+    <p>Temperature - Highest of Record: Degrees F</p>
+
+    <div id="gridVarWeather"></div>
+
+    <h3>Example code for initializing GridVar with climate data</h3>
+
+    <pre><code class="javascript">$('#gridVarWeather').gridVar({
+    rowOrder: ['BIRMINGHAM AP, AL', 'ANCHORAGE, AK',
+        'FLAGSTAFF, AZ', 'FORT SMITH, AR',
+        'BAKERSFIELD, CA', ...
+    ],
+    columnOrder: ['January', 'February', 'March', ...],
+    dataMapping: data: [
+            ['BIRMINGHAM AP, AL', 'January', ['Neutral'],
+            [81],
+            ['cloudy'],
+            [7, 6, 18]
+        ],
+            ['BIRMINGHAM AP, AL', 'February', ['Neutral'],
+            [83],
+            ['cloudy'],
+            [7, 6, 15]
+        ],
+            ['BIRMINGHAM AP, AL', 'March', ['Hot'],
+            [89],
+            ['cloudy'],
+            [7, 8, 16]
+        ],
+        ...
+    ],
+    dataIndex: {
+        rowKey: 0,
+        columnKey: 1,
+        temperature: 2,
+        cloudy: 4
+    }
+    ],
+    dataDisplayMapping: [{
+      dataType: 'temperature',
+      mappings: {
+          Hot: '#E44C16',
+           Neutral: '#E3E3E3',
+            Cool: '#01A2BF'
+        },
+        labelMapping: {
+           Hot: 'Hot (greater than 88)',
+           Neutral: 'Neutral',
+           Cool: 'Cool (less than 55)'
+        }
+    }, {
+       dataType: 'cloudy',
+           mappings: {
+           clear: 'circleRenderer',
+           cloudy: 'minusRenderer'
+        }
+    }],
+    rowLabelClicked: function (event, data) {
+         alert(data + ' clicked!');
+    }
+});</code></pre>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.0/jquery.qtip.min.css"/>
+<link rel="stylesheet" href="gridvar.css"/>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.min.js"></script>
+<script src="jquery.nibrGridVar.min.js"></script>
+
+<script type="text/javascript" src="http://cdn.jsdelivr.net/qtip2/2.2.0/jquery.qtip.min.js"></script>
+
+<script type="text/javascript" src="gridvar-example.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        onMainReady();
+    });
+</script>
+</div>
+      </div>
+      <div class="footer nibr-small-padding-top">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nibr-no-padding-left-right nibr-small-padding-top">© 2016 Novartis AG <a href="http://nibr.com/terms-use" target="_blank">Terms of use</a> | <a href="http://nibr.com/privacy-policy" target="_blank">Privacy policy</a> | <a href="https://www.nibr.com/safe-harbor-standards" target="_blank">Safe harbor</a> | <a href="mailto:open.source@novartis.com">open.source@novartis.com</a></div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nibr-no-padding-left-right">
+          <div class="nibr-text-right"><a href="https://www.facebook.com/novartis"><img src="/assets/images/facebook-icon.png" alt="Facebook" title="Facebook" class="footer-spacing"></a><a href="https://www.linkedin.com/company/novartis-institutes-for-biomedical-research"><img src="/assets/images/linkedin-icon.png" alt="LinkedIn" title="LinkedIn" class="footer-spacing"></a><a href="https://twitter.com/NovartisScience"><img src="/assets/images/twitter-icon.png" alt="Follow us on Twitter" title="Follow us on Twitter" class="footer-spacing"></a>
+            <!--a(href='/feed.xml')img.footer-spacing(src='/assets/images/feed-icon-28x28.png', alt='Subscribe to our blog', title='Subscribe to our blog')
+            -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

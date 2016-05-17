@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1">
+    <!-- TODO-->
+    <meta name="keywords">
+    <meta name="description">
+    <meta name="author">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/offcanvas.css">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+    <script src="../../assets/js/jquery-1.10.2.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/offcanvas.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      
+    </script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+    <!-- compiled CSS-->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+  </head>
+  <body>
+    <div role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button><a href="../../" class="navbar-brand">NIBR Open Source</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://nibr.com" target="_blank">NIBR</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://nibr.com/"><img src="../../assets/images/novartis-logo.png"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="project container">
+        <h1>Habitat</h1><img style="float:right;" class="scale-image">
+        <p><p><strong>Habitat</strong> is a simple and yet powerful self-contained object storage management system.
+Based on Amazon Web Services, it is capable of virtually unlimited storage.
+Instead of a large centralized management system, <strong>Habitat</strong> can be used as a local repository
+for a single application or it can be shared and used with many clients.</p>
+<p><strong>Habitat</strong> is best used for situations where the client producers and consumers of the files
+do not require a file system protocol interface and can use http(s) to access the store.</p>
+</p>
+        <center><a href="https://github.com/Novartis/habitat" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span> GitHub project</a> <a href="https://github.com/Novartis/habitat/releases/latest" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-download"></span> Download Habitat</a>
+        </center>
+        <div style="clear:both;"><h1 id="habitat-where-files-live">Habitat - Where files live</h1>
+<h2 id="key-features">Key features</h2>
+<ul>
+<li>Upload/download via http(s) from any client that can issue HTTP POST requests</li>
+<li>Upload/download via any tools that support writing/reading from S3. For example:<ul>
+<li>Web browser (via a Java applet <a href="http://docs.aws.amazon.com/AmazonS3/latest/UG/enhanced-uploader.htm">http://docs.aws.amazon.com/AmazonS3/latest/UG/enhanced-uploader.htm</a>) </li>
+<li>Windows client: <a href="http://s3browser.com">http://s3browser.com</a></li>
+<li>Windows client: <a href="http://www.cloudberrylab.com/free-amazon-s3-explorer-cloudfront-IAM.aspx#close">http://www.cloudberrylab.com/free-amazon-s3-explorer-cloudfront-IAM.aspx#close</a></li>
+<li>Future: Web browser: we are building a web client that we will likely open source</li>
+</ul>
+</li>
+<li>Future: upload via file interface where a file is stored by dropping in a temp directory</li>
+<li>Future: checkout a collection of files into a local file system (setting user/group permissions as desired)</li>
+<li>Immutable reference key for each stored file</li>
+<li>Stores metadata about the object from a variety of sources:<ul>
+<li>Parsed from the file name (customized parsing via a regular expression)</li>
+<li>Extracted from the file contents (via a custom plugin)</li>
+<li>Exracted from a companion metadata file (uploaded either before or after the data file)</li>
+<li>Extracted from the write action event itself</li>
+<li>Extracted from the S3 metadata attribute on the object</li>
+</ul>
+</li>
+<li>Life cycle management to reduce to lower cost storage or to delete after defined time periods</li>
+<li>Get file or file list based on metadata search</li>
+<li>Search index using a discrete or shared Elastic Search instance</li>
+<li>Future: Supports object versioning</li>
+<li>Easily customized to tailor to unique requirements (config file driven, with custom plugins)</li>
+<li>Supports saving a shadow copy of metadata into the S3 object metadata in addition to the Elastic Search index</li>
+</ul>
+</div>
+      </div>
+      <div class="footer nibr-small-padding-top">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nibr-no-padding-left-right nibr-small-padding-top">© 2016 Novartis AG <a href="http://nibr.com/terms-use" target="_blank">Terms of use</a> | <a href="http://nibr.com/privacy-policy" target="_blank">Privacy policy</a> | <a href="https://www.nibr.com/safe-harbor-standards" target="_blank">Safe harbor</a> | <a href="mailto:open.source@novartis.com">open.source@novartis.com</a></div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nibr-no-padding-left-right">
+          <div class="nibr-text-right"><a href="https://www.facebook.com/novartis"><img src="/assets/images/facebook-icon.png" alt="Facebook" title="Facebook" class="footer-spacing"></a><a href="https://www.linkedin.com/company/novartis-institutes-for-biomedical-research"><img src="/assets/images/linkedin-icon.png" alt="LinkedIn" title="LinkedIn" class="footer-spacing"></a><a href="https://twitter.com/NovartisScience"><img src="/assets/images/twitter-icon.png" alt="Follow us on Twitter" title="Follow us on Twitter" class="footer-spacing"></a>
+            <!--a(href='/feed.xml')img.footer-spacing(src='/assets/images/feed-icon-28x28.png', alt='Subscribe to our blog', title='Subscribe to our blog')
+            -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

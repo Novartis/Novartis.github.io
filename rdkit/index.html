@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1">
+    <!-- TODO-->
+    <meta name="keywords">
+    <meta name="description">
+    <meta name="author">
+    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/css/offcanvas.css">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+    <script src="../../assets/js/jquery-1.10.2.min.js"></script>
+    <script src="../../assets/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/offcanvas.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+      
+    </script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+    <!-- compiled CSS-->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+  </head>
+  <body>
+    <div role="navigation" class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button><a href="../../" class="navbar-brand">NIBR Open Source</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="http://nibr.com" target="_blank">NIBR</a></li>
+            <li><a href="../../contact.html">Contact Us</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://nibr.com/"><img src="../../assets/images/novartis-logo.png"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="project container">
+        <h1>RDKit</h1><img style="float:right;" class="scale-image">
+        <p><p>The RDKit is a collection of cheminformatics and machine-learning software written in C++ and Python. The core algorithms and data structures are written in C++. Wrappers are provided to use the toolkit from either Python, Java, or C#. Additionally, the RDKit distribution includes a PostgreSQL-based cartridge that allows molecules to be stored in a relational database and retrieved via substructure and similarity searches.</p>
+<p>Please see the <a href="http://www.rdkit.org/docs/index.html">RDKit Documentation</a> for more information on installation, usage, cookbooks, and lots more.</p>
+</p>
+        <center><a href="https://github.com/Novartis/rdkit" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span> GitHub project</a> <a href="https://github.com/Novartis/rdkit/releases/latest" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-download"></span> Download RDKit</a>
+        </center>
+        <div style="clear:both;">
+<h2>Similarity Maps Example</h2>
+
+<p>As a way to demonstrate a use of the RDKit, below is an example of how to easily create a similarity map.</p>
+
+<div class="col-xs-12">
+    <img src="rdkit-similarity-map.png" class="scale-image">
+</div>
+
+<p>
+    The RDKit provides a broad range of standard <a href="http://rdkit.org/docs/Overview.html#functionality-overview">
+    cheminformatics functionality</a> for working with molecules in two and three dimensions as well a number of unique
+    features. One of these is the ability to generate similarity maps to visualize the atomic contributions to the
+    similarity between a molecule and a reference molecule. The methodology is described in Riniker, S. & Landrum, G. A.
+    <a href="http://www.jcheminf.com/content/5/1/43">Similarity maps - a visualization strategy for molecular
+    fingerprints and machine-learning methods.</a> J Cheminf (2013) and available in the
+    <a href="http://www.rdkit.org/docs/api/rdkit.Chem.Draw.SimilarityMaps-module.html">rdkit.Chem.Draw.SimilarityMaps</a>
+    module.
+</p>
+
+<p>
+    In the following example, we show how to do this using Python.
+</p>
+
+<p>Start by creating two molecules:</p>
+
+<pre><code class="python">>>> from rdkit import Chem
+>>> mol = Chem.MolFromSmiles('COc1cccc2cc(C(=O)NCCCCN3CCN(c4cccc5nccnc54)CC3)oc21')
+>>> refmol = Chem.MolFromSmiles('CCCN(CCCCN1CCN(c2ccccc2OC)CC1)Cc1ccc2ccccc2c1')
+</code></pre>
+
+<p>The SimilarityMaps module supports three kind of fingerprints: atom pairs, topological torsions and Morgan
+    fingerprints.</p>
+
+<pre><code class="python">>>> from rdkit.Chem import Draw
+>>> from rdkit.Chem.Draw import SimilarityMaps
+>>> fp = SimilarityMaps.GetAPFingerprint(mol, fpType='normal')
+>>> fp = SimilarityMaps.GetTTFingerprint(mol, fpType='normal')
+>>> fp = SimilarityMaps.GetMorganFingerprint(mol, fpType='bv')
+</code></pre>
+
+<p>
+    The types of atom pairs and torsions are normal (default), hashed and bit vector (bv). The types of the Morgan
+    fingerprint are bit vector (bv, default) and count vector (count).
+</p>
+
+<p>
+    The function generating a similarity map for two fingerprints requires the specification of the fingerprint function
+    and optionally the similarity metric. The default for the latter is the Dice similarity. Using all the default
+    arguments of the Morgan fingerprint function, the similarity map can be generated like this:
+</p>
+
+<pre><code class="python">>>> fig, maxweight = SimilarityMaps.GetSimilarityMapForFingerprint(refmol, mol, SimilarityMaps.GetMorganFingerprint)
+</code></pre>
+
+<p>
+    Producing this image:
+</p>
+<div class="col-xs-12">
+    <img src="rdkit-similarity-map.png" class="scale-image">
+</div>
+
+<link rel="stylesheet" href="rdkit.css"/>
+</div>
+      </div>
+      <div class="footer nibr-small-padding-top">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nibr-no-padding-left-right nibr-small-padding-top">© 2016 Novartis AG <a href="http://nibr.com/terms-use" target="_blank">Terms of use</a> | <a href="http://nibr.com/privacy-policy" target="_blank">Privacy policy</a> | <a href="https://www.nibr.com/safe-harbor-standards" target="_blank">Safe harbor</a> | <a href="mailto:open.source@novartis.com">open.source@novartis.com</a></div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 nibr-no-padding-left-right">
+          <div class="nibr-text-right"><a href="https://www.facebook.com/novartis"><img src="/assets/images/facebook-icon.png" alt="Facebook" title="Facebook" class="footer-spacing"></a><a href="https://www.linkedin.com/company/novartis-institutes-for-biomedical-research"><img src="/assets/images/linkedin-icon.png" alt="LinkedIn" title="LinkedIn" class="footer-spacing"></a><a href="https://twitter.com/NovartisScience"><img src="/assets/images/twitter-icon.png" alt="Follow us on Twitter" title="Follow us on Twitter" class="footer-spacing"></a>
+            <!--a(href='/feed.xml')img.footer-spacing(src='/assets/images/feed-icon-28x28.png', alt='Subscribe to our blog', title='Subscribe to our blog')
+            -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
