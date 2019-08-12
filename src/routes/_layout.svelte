@@ -10,7 +10,6 @@
 <style>
 	main {
 		position: relative;
-		max-width: 60rem;
 		margin: 0 auto;
 		box-sizing: border-box;
 
@@ -24,6 +23,10 @@
 		padding-right: 2rem;
 		/* add some space on left-hand side */
 		padding-left: 2rem;
+	}
+
+	main.homepage {
+		max-width: 60rem;
 	}
 
 	.bg {
@@ -42,6 +45,10 @@
 			background-size: cover, 120px;
 		}
 	}
+
+	:global(a) {
+		font-weight: bold;
+	}
 </style>
 
 <svelte:head>
@@ -52,7 +59,7 @@
 <Nav {segment} />
 
 <div class="bg" style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 75px, rgba(255, 255, 255, 255) 75px, rgba(255, 255, 255, 255)), url('{$session.basepath}/blue-carbon.png');">
-	<main>
+	<main class:homepage={true || !segment}>
 		<slot></slot>
 	</main>
 </div>

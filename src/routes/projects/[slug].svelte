@@ -14,10 +14,35 @@
 </script>
 
 <script>
+  import Button from '../../components/Button';
   export let project;
 </script>
 
 <style>
+  .summary {
+    margin: 1em 0;
+    padding: 1em;
+    border-top: 3px solid black;
+    transition: transform 200ms;
+  }
+
+
+	@media screen and (min-width: 775px) {
+    .summary {
+      float: right;
+      width: 20rem;
+      transform: translateX(1rem);
+    }
+  }
+
+	@media screen and (min-width: 1200px) {
+    .summary {
+      float: right;
+      width: 20rem;
+      transform: translateX(3rem);
+    }
+  }
+
   /*
 		By default, CSS is locally scoped to the component,
 		and any unused styles are dead-code-eliminated.
@@ -85,6 +110,13 @@
 </svelte:head>
 
 <h1>{project.metadata.title}</h1>
+
+<div class="summary">
+  <h2>Project details</h2>
+  <p>Released {new Date(project.metadata.launched).toLocaleDateString()}</p>
+  <p>{@html project.metadata.description}</p>
+  <Button component="a" href="https://github.com/novartis/{project.metadata.projectName}" target="_blank" rel="nofollow noreferrer">GitHub repo</Button>
+</div>
 
 <div class="content">
   {@html project.html}

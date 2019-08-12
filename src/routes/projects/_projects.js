@@ -40,7 +40,10 @@ export function getPost(slug) {
 
 	return {
 		slug,
-		metadata,
+		metadata: {
+			...metadata,
+			description: marked(metadata.description)
+		},
 		html
 	};
 }

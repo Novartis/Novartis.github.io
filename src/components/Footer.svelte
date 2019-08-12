@@ -29,6 +29,7 @@
   a {
     color: rgba(0, 0, 0, 0.5);
     text-decoration: none;
+    font-weight: 400;
   }
   a:hover {
     text-decoration: underline;

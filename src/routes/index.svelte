@@ -9,6 +9,7 @@
 <script>
   import ProjectList from '../components/ProjectList.svelte';
   import Welcome from '../components/Welcome.svelte';
+
   export let projects;
 </script>
 

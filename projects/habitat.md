@@ -6,12 +6,12 @@ launched: 2016-04-29
 icon: /projects/habitat/habitat-icon.png
 summary: Habitat - Where files live. A simple and yet powerful self-contained object storage management system.
 description: |
-  **Habitat** is a simple and yet powerful self-contained object storage management system.
+  Habitat is a simple and yet powerful self-contained object storage management system.
   Based on Amazon Web Services, it is capable of virtually unlimited storage.
-  Instead of a large centralized management system, **Habitat** can be used as a local repository
+  Instead of a large centralized management system, Habitat can be used as a local repository
   for a single application or it can be shared and used with many clients.
 
-  **Habitat** is best used for situations where the client producers and consumers of the files
+  Habitat is best used for situations where the client producers and consumers of the files
   do not require a file system protocol interface and can use http(s) to access the store.
 ---
 

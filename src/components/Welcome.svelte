@@ -1,5 +1,25 @@
 <style>
-  @keyframes fadein {
+  @keyframes fadein-lg {
+    from {
+      transform: translate(-9rem);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-10rem);
+      opacity: 1;
+    }
+  }
+  @keyframes fadein-md {
+    from {
+      transform: translate(-4rem);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-5rem);
+      opacity: 1;
+    }
+  }
+  @keyframes fadein-sm {
     from {
       transform: translate(1rem);
       opacity: 0;
@@ -25,7 +45,7 @@
     max-width: 100%;
     grid-row: 2 / 3;
     grid-column: 1 / 2;
-    animation: fadein 400ms;
+    animation: fadein-sm 400ms;
   }
 
   .bg {
@@ -54,7 +74,15 @@
 
   @media screen and (min-width: 775px) {
     .callout {
-      margin-left: -10rem;
+      transform: translate(-5rem);
+      animation: fadein-md 400ms;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .callout {
+      transform: translate(-10rem);
+      animation: fadein-lg 400ms;
     }
   }
 </style>
