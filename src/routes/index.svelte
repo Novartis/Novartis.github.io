@@ -1,5 +1,6 @@
 <script context="module">
 	export function preload() {
+    this.fetch('manifest.json');
 		return this.fetch(`./projects.json`).then(r => r.json()).then(projects => {
 			return { projects };
 		});

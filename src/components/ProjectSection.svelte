@@ -56,7 +56,7 @@ $: href = `${$session.basepath}/projects/${slug}`;
 </style>
 
 <div class="project" in:fly={{y: 10, delay: 1 + 100 * index}}>
-  {#if icon}
+  {#if false && icon}
     <a {href} {title} class="ico-wrap">
       <div class="icon-display" style="background-image: url('{$session.basepath}{icon}');" />
     </a>

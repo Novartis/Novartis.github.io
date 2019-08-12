@@ -2,6 +2,7 @@
 import ProjectSection from './ProjectSection.svelte';
 import { fade } from 'svelte/transition';
 export let projects;
+
 </script>
 
 <style>

@@ -14,6 +14,8 @@
 		margin: 0 auto;
 		box-sizing: border-box;
 
+		min-height: 100vh;
+
 		/* leave room for header */
 		padding-top: 4rem;
 		/* leave room for footer */
@@ -25,30 +27,31 @@
 	}
 
 	.bg {
-		background-size: 0;
-		background-repeat: no-repeat;
+		background-size: auto, 0;
+		background-repeat: auto, no-repeat;
 	}
 
 	@media screen and (min-width: 775px) {
 		.bg {
 			/* leave room for background image, plus visual spacing to match right side */
-			padding-left: calc(160px + 2rem);
+			padding-left: calc(75px + 2rem);
 
-			background-position: left;
-			background-attachment: fixed;
-			background-repeat: repeat-y;
-			background-size: 160px;
+			background-position: right, left;
+			background-attachment: fixed, fixed;
+			background-repeat: auto, repeat-y;
+			background-size: cover, 120px;
 		}
 	}
 </style>
 
 <svelte:head>
-	<link rel="icon" type="image/png" href="{$session.basepath}/favicon.ico" />
+	<link rel="icon" type="image/ico" href="{$session.basepath}/favicon.ico" />
+	<link rel="manifest" href="{$session.basepath}/manifest.json" />
 </svelte:head>
 
 <Nav {segment} />
 
-<div class="bg" style="background-image: url('{$session.basepath}/blue-carbon.png');">
+<div class="bg" style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 75px, rgba(255, 255, 255, 255) 75px, rgba(255, 255, 255, 255)), url('{$session.basepath}/blue-carbon.png');">
 	<main>
 		<slot></slot>
 	</main>
