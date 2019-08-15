@@ -1,25 +1,5 @@
 <style>
-  @keyframes fadein-lg {
-    from {
-      transform: translate(-9rem);
-      opacity: 0;
-    }
-    to {
-      transform: translate(-10rem);
-      opacity: 1;
-    }
-  }
-  @keyframes fadein-md {
-    from {
-      transform: translate(-4rem);
-      opacity: 0;
-    }
-    to {
-      transform: translate(-5rem);
-      opacity: 1;
-    }
-  }
-  @keyframes fadein-sm {
+  @keyframes fadein {
     from {
       transform: translate(1rem);
       opacity: 0;
@@ -32,8 +12,10 @@
 
   .wrapper {
     display: grid;
-    grid-template-rows: 2rem 1fr 2rem;
+    grid-template-rows: 20vh 1fr 10vh;
     grid-template-columns: minmax(0, 20rem) 1fr;
+    margin-left: -2rem;
+    margin-right: -2rem;
   }
 
   .callout {
@@ -45,7 +27,7 @@
     max-width: 100%;
     grid-row: 2 / 3;
     grid-column: 1 / 2;
-    animation: fadein-sm 400ms;
+    animation: fadein 400ms;
   }
 
   .bg {
@@ -72,19 +54,6 @@
     margin-top: 0;
   }
 
-  @media screen and (min-width: 775px) {
-    .callout {
-      transform: translate(-5rem);
-      animation: fadein-md 400ms;
-    }
-  }
-
-  @media screen and (min-width: 1500px) {
-    .callout {
-      transform: translate(-10rem);
-      animation: fadein-lg 400ms;
-    }
-  }
 </style>
 
 <script>
@@ -100,5 +69,5 @@ const { session } = stores();
       Read about our work
     </a>
   </div>
-  <div class="bg" style="background-image: url('{$session.basepath}/opensource-bg.jpeg');" />
+  <div class="bg" style="background-image: url('{$session.basepath}/novartis-robot.png');" />
 </div>

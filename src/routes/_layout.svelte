@@ -5,30 +5,44 @@
 	import Nav from '../components/Nav.svelte';
 	import Footer from '../components/Footer.svelte';
 	export let segment;
+
+	$: homepage = !segment;
+	$: contentPage = !homepage;
 </script>
 
 <style>
 	main {
 		position: relative;
-		margin: 0 auto;
 		box-sizing: border-box;
 
 		min-height: 100vh;
+		width: 100%;
 
 		/* leave room for header */
-		padding-top: 4rem;
+		padding-top: 3.5rem;
 		/* leave room for footer */
-		padding-bottom: 3rem;
+		padding-bottom: 2.75rem;
+	}
+
+	main.homepage {
 		/* add some space on right-hand side */
 		padding-right: 2rem;
 		/* add some space on left-hand side */
 		padding-left: 2rem;
 	}
 
-	main.homepage {
-		max-width: 80rem;
-	}
+  .bg.contentPage {
+		padding-left: 1rem;
+		padding-right: 1rem;
+  }
 
+  @media screen and (min-width: 775px) {
+    .bg.contentPage {
+			padding-left: calc(75px + 1rem);
+			padding-right: 4rem;
+    }
+	}
+	
 	.bg {
 		background-size: auto, 0;
 		background-repeat: auto, no-repeat;
@@ -36,9 +50,6 @@
 
 	@media screen and (min-width: 775px) {
 		.bg {
-			/* leave room for background image, plus visual spacing to match right side */
-			padding-left: calc(75px + 2rem);
-
 			background-position: right, left;
 			background-attachment: fixed, fixed;
 			background-repeat: auto, repeat-y;
@@ -58,8 +69,8 @@
 
 <Nav {segment} />
 
-<div class="bg" style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 75px, rgba(255, 255, 255, 255) 75px, rgba(255, 255, 255, 255)), url('{$session.basepath}/blue-carbon.png');">
-	<main class:homepage={true || !segment}>
+<div class="bg" class:contentPage style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 75px, rgba(255, 255, 255, 255) 75px, rgba(255, 255, 255, 255)), url('{$session.basepath}/blue-carbon.png');">
+	<main class:homepage class:contentPage>
 		<slot></slot>
 	</main>
 </div>

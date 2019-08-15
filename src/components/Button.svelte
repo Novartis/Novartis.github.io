@@ -18,8 +18,23 @@
   background-color: black;
   color: white;
 }
+.btn.primary {
+  border-color: white;
+  background-color: #0460A9;
+  color: white;
+}
+.btn.primary:hover {
+  background-color: white;
+  color: #0460A9;
+}
 </style>
 
-<a class:btn={true} {...$$props}>
+<script>
+  export let variant;
+
+  $: primary = (variant === 'primary');
+</script>
+
+<a class:btn={true} class:primary {...$$props}>
   <slot></slot>
 </a>

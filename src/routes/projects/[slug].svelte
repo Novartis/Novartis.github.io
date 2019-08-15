@@ -16,6 +16,7 @@
 <script>
   import {onMount, onDestroy} from 'svelte';
   import Button from '../../components/Button';
+  import Callout from '../../components/Callout';
   export let project;
 
   let trackedElements = [];
@@ -175,6 +176,19 @@
     text-align: left;
     padding: 0.25em 0.5em;
   }
+
+  .callout-wrapper > :global(div) {
+    margin-top: 4rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  @media screen and (min-width: 775px) {
+    .callout-wrapper > :global(div) {
+      margin-left: calc(-75px - 3rem);
+      margin-right: -4rem;
+    }
+  }
 </style>
 
 <svelte:head>
@@ -192,4 +206,8 @@
 
 <div class="content">
   {@html project.html}
+</div>
+
+<div class="callout-wrapper">
+  <Callout />
 </div>

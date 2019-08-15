@@ -15,6 +15,7 @@
     font-weight: 300;
     padding: 0 1em 1px;
     transition: box-shadow 200ms;
+    margin: 0;
 
     display: flex;
     flex-flow: row nowrap;
