@@ -36,7 +36,7 @@ export function getPost(slug) {
 	metadata.dateString = date.toDateString();
 	metadata.title = metadata.name;
 
-	const html = marked(content);
+	const html = path.extname(file) === '.html' ? content : marked(content);
 
 	return {
 		slug,

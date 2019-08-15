@@ -183,13 +183,17 @@
   }
 
   .content :global(th) {
+    text-align: left;
+    padding: 0 0.5em;
+  }
+
+  .content :global(thead th) {
     color: #0460A9;
     font-weight: bold;
     text-transform: uppercase;
-    text-align: left;
-    padding: 0 0.5em;
     border-bottom: 1px solid #0460A9;
   }
+
   .content :global(td) {
     text-align: left;
     padding: 0.25em 0.5em;
