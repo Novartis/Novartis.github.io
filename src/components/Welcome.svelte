@@ -79,7 +79,7 @@
     }
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1500px) {
     .callout {
       transform: translate(-10rem);
       animation: fadein-lg 400ms;

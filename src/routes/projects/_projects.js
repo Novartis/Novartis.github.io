@@ -42,7 +42,9 @@ export function getPost(slug) {
 		slug,
 		metadata: {
 			...metadata,
-			description: marked(metadata.description)
+			description: marked(metadata.description),
+			styles: metadata.styles || [],
+			scripts: metadata.scripts || [],
 		},
 		html
 	};

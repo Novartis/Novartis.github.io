@@ -1,10 +1,10 @@
 ---
-name: Jenkins-LSCI (Life Science Continuous Integration)
+name: Jenkins-LSCI
 abbreviation: Jenkins-LSCI
 projectName: Jenkins-LSCI
 launched: 2016-08-30
 icon: /projects/jenkins-lsci/Jenkins_LifeSci.png
-summary: Workflows and data pipelines for life science research.
+summary: 'Life Science Continuous Integration -- Workflows and data pipelines for life science research.'
 description: |
   Jenkins-LSCI enables research scientists to build workflows and data pipelines on the same robust framework and plugin ecosystem as Jenkins-CI the widely used continuous integration server that supports building, deploying and automating any software project.
 ---

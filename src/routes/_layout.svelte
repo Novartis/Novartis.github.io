@@ -26,7 +26,7 @@
 	}
 
 	main.homepage {
-		max-width: 60rem;
+		max-width: 80rem;
 	}
 
 	.bg {

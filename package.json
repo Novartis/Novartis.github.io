@@ -8,6 +8,7 @@
     "dev": "sapper dev",
     "build": "sapper build",
     "export": "sapper export",
+    "now-build": "npm run -s export",
     "start": "node build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",

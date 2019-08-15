@@ -8,8 +8,14 @@ export let projects;
 <style>
   .wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25ch, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
     grid-column-gap: 1rem;
+  }
+
+  @media screen and (min-width: 900px) {
+    .wrapper {
+      grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    }
   }
 </style>
 

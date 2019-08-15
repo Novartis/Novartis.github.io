@@ -14,8 +14,80 @@
 </script>
 
 <script>
+  import {onMount, onDestroy} from 'svelte';
   import Button from '../../components/Button';
   export let project;
+
+  let trackedElements = [];
+
+  async function elementLoad(el) {
+    return new Promise((resolve, reject) => {
+      el.onload = () => {
+        trackedElements.push(el);
+        resolve();
+      };
+      el.onerror = el.onabort = (error) => reject(error);
+      document.head.appendChild(el);
+    })
+  }
+
+  async function loadScript(src) {
+    const scriptEl = document.createElement('script');
+    scriptEl.setAttribute('type', 'text/javascript');
+    scriptEl.src = src;
+    await elementLoad(scriptEl);
+  }
+
+  async function loadAllScripts(scripts) {
+    for (let i = 0; i < scripts.length; i++) {
+      await loadScript(scripts[i]);
+    }
+  }
+
+  async function loadStyle(src) {
+    const styleEl = document.createElement('link');
+    styleEl.setAttribute('rel', 'stylesheet');
+    styleEl.href = src;
+    await elementLoad(styleEl);
+  }
+
+  async function loadScriptsAndStyles(metadata) {
+    const promises = [];
+
+    if (Array.isArray(metadata.scripts)) {
+      promises.push(loadAllScripts(metadata.scripts));
+    }
+    metadata.styles.forEach((style) => {
+      promises.push(loadStyle(style));
+    });
+    
+    if (!promises.length) return;
+    await Promise.all(promises);
+
+    if (typeof metadata.onMount === 'string') {
+      try {
+        new Function(metadata.onMount)();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
+
+  onMount(() => {
+    loadScriptsAndStyles(project.metadata);
+  });
+
+  onDestroy(() => {
+    if (typeof project.metadata.onDestroy === 'string') {
+      try {
+        new Function(project.metadata.onDestroy)();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    trackedElements.forEach((el) => document.head.removeChild(el));
+    trackedElements = [];
+  });
 </script>
 
 <style>

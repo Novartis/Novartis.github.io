@@ -8,14 +8,24 @@ summary: |
   GridVar is a jQuery plugin that visualizes multi-dimensional datasets as layers organized in a row-column format.
 description: |
   GridVar is a jQuery plugin that visualizes multi-dimensional datasets as layers organized in a row-column format. At each cell (i.e., rectangle at the intersection of a row and column), GridVar displays your data as a background color (like a color/heat map) and/or a glyph (shape). This enables different characteristics of your dataset to be layered on top of each other. For more information on usage, required libraries, and other developer information, please see [our documentation on GitHub](https://github.com/Novartis/gridvar).
+scripts:
+  - https://code.jquery.com/jquery-1.10.1.min.js
+  - https://cdn.jsdelivr.net/qtip2/2.2.0/jquery.qtip.min.js
+  - https://code.jquery.com/ui/1.10.3/jquery-ui.js
+  - https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.min.js
+  - /projects/gridvar/jquery.nibrGridVar.min.js
+  - /projects/gridvar/gridvar-example.js
+styles:
+  - https://cdn.jsdelivr.net/qtip2/2.2.0/jquery.qtip.min.css
+  - /projects/gridvar/gridvar.css
+onMount: |
+  $(document).ready(function() {
+    onMainReady();
+  });
+onDestroy: |
+  $('.qtip').remove();
 ---
-
-<h2>Examples</h2>
-
-<ul>
-  <li><a href="#genomicsExample">Genomics Example</a></li>
-  <li><a href="#weatherExample">Weather Example</a></li>
-</ul>
 
 <h3><a id="genomicsExample"></a>Genomics Example</h3>
 
@@ -231,31 +241,3 @@ description: |
          alert(data + ' clicked!');
     }
 });</code></pre>
-
-<link
-  rel="stylesheet"
-  href="http://cdn.jsdelivr.net/qtip2/2.2.0/jquery.qtip.min.css"
-/>
-<link rel="stylesheet" href="/projects/gridvar/gridvar.css" />
-
-<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="https://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.3.11/d3.min.js"></script>
-<script src="/projects/gridvar/jquery.nibrGridVar.min.js"></script>
-
-<script
-  type="text/javascript"
-  src="https://cdn.jsdelivr.net/qtip2/2.2.0/jquery.qtip.min.js"
-></script>
-
-<script
-  type="text/javascript"
-  src="/projects/gridvar/gridvar-example.js"
-></script>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    onMainReady();
-  });
-</script>
