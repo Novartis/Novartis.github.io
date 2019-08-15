@@ -18,6 +18,12 @@
     margin-right: -2rem;
   }
 
+  @media screen and (max-width: 774.5px) {
+    .wrapper {
+    grid-template-rows: 2em 1fr 2em;
+    }
+  }
+
   .callout {
     background-color: #0460A9;
     color: white;
@@ -35,6 +41,7 @@
     grid-row: 1 / 4;
     grid-column: 1 / 3;
     background-size: cover;
+    background-position: center;
   }
 
   a {
