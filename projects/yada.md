@@ -8,11 +8,9 @@ description: |
   Enable efficient, non-redundant development of data-dependent applications and utilities, data source querying, data analysis, processing pipelines, extract, transform, and load (ETL) processes. YADA does all this while preserving total decoupling between data access and other aspects of application architecture such as user interface.
 ---
 
-# Why YADA?
+## Why YADA?
 
-<div style="float:right;margin-top:-43px;">
-    <img src="https://github.com/novartis/yada/src/site/resources/images/blox250.png"/>
-</div>
+<img src="https://github.com/Novartis/YADA/raw/master/src/site/resources/images/blox250.png"/>
 
 **YADA** is like a [_Universal Remote Control_](https://en.wikipedia.org/wiki/Universal_remote) for data.
 
@@ -39,7 +37,7 @@ Or, what if you could get data
 
 You can with **YADA**.
 
-# What is YADA?
+## What is YADA?
 
 **YADA** exists to simplify data access and eliminate work.
 
@@ -61,7 +59,7 @@ You can with **YADA**.
 
 Its [raisons d'être] are to enable efficient, non-redundent development of data-dependent applications and utilities, data source querying, data analysis, processing pipelines, extract, transform, and load (ETL) processes, etc. **YADA** does all this while preserving total decoupling between data access and other aspects of application architecture such as user interface.
 
-# Still like "Huh?"
+## Still like "Huh?"
 
 **YADA** is a software framework, which means it is a collection of software tools forming a basic structure underlying a system, for developers and data analysts to use to create new tools and solutions in a new way.
 
@@ -75,11 +73,11 @@ With YADA, the data source connections and application-specific queries are stor
 
 For software developers and data analysts alike, these features offer potentially tremendous time savings, faster time-to-delivery, and a larger percentage of time focused not on the tedium of configuration, but on the specific context of a software solution or data analysis.
 
-# What's in this document?
+## What's in this document?
 
 This document contains an overview of the framework and features. Check out the [Quickstart/Deployment Guide] for details on getting started.
 
-## Table of Contents
+### Table of Contents
 
 1. [Other Documentation]
 2. [Getting into the YADA Mindset]
@@ -95,13 +93,13 @@ This document contains an overview of the framework and features. Check out the 
 
 <a name="other"></a>
 
-# Other Documentation
+## Other Documentation
 
-## Getting Started
+### Getting Started
 
 - [Quickstart/Deployment Guide]
 
-## Advanced Documentation
+### Advanced Documentation
 
 - [YADA Admin Guide]
 - [User Guide]
@@ -109,7 +107,7 @@ This document contains an overview of the framework and features. Check out the 
 - [Plugin Use and Development Guide]
 - [Testing Notes]
 
-## Specifications
+### Specifications
 
 - [Javadoc]
 - [YADA Parameter Specification]
@@ -121,25 +119,25 @@ This document contains an overview of the framework and features. Check out the 
 
 <a name="mindset"></a>
 
-# Getting into the YADA Mindset
+## Getting into the YADA Mindset
 
 YADA exists to simplify data access and eliminate work.
 
 YADA may be exactly what you've been looking for, or it may be a solution to a problem you didn't know you had. YADA is the perfect tool for many use-cases. Here are a few examples. Suppose you are a
 
-## Scientist or Data Analyst...
+### Scientist or Data Analyst...
 
 The new numbers are in from the lab, or from last night's feed, and uploaded to your database or data warehouse. You want to create a new visualization in your favorite statistical analysis package, but you're not sure how to connect to the database. Your data gal helped you set it up in Python once, but since then, you just run the script to get the data. Now you need it in a different environment.
 
 If your data gal had set up a **YADA** query for your datasource, you could simply run the query in your web browser to download the data, or use any module that will retrieve data from a url. You can reuse the _very same query_ that was already configured for your other tasks.
 
-## Datasource Owner/Curator...
+### Datasource Owner/Curator...
 
 Your constituents want their data, and they call you. Everyone wants basically the same set of columns but with a different "WHERE" clause, i.e., they each want a different subset of rows. Some can handle connection strings, but most can't.
 
 So you configure your datasource in the **YADA** server, store a query, and send the same url to every one, explaining to them where to plug in the values in the query parameter string so they get only the data they want. They might see some columns they don't want but they can easily ignore them. If someone complains, heck, you just store another similar query with a different name, and voilà.
 
-## Software User Interface Developer...
+### Software User Interface Developer...
 
 You hate middleware. Every time you want to extend the data model, you have to change your Resource layer, your DAO layer, your DAOImpls, your DTOs, your Model classes, your UI code, etc. You might have to touch 20 files to add one field.
 
@@ -147,13 +145,13 @@ Not so with **YADA**.
 
 With **YADA**, you change your stored query, and you change the code that executes the stored query, whether it's a javascript-based ajax call, or a perl LWP request, or a curl call from a shell script. As long as your client speaks HTTP, **YADA** will deliver your data.
 
-## Software Middleware Developer...
+### Software Middleware Developer...
 
 Even you, middleware guy, can benefit from **YADA**.
 
 Maybe you have to provide a RESTful interface to an existing application, and need to deliver in such a short window, or have only a handful of users, so a fully-specified REST service is not practical. Maybe you need to access an existing REST interface and can't use your own proxy script; or, you have to grant access to a unix filesystem without mapping it in Apache or changing privileges. Perhaps the business wants to integrate some existing perl-based pipeline processes into a user interface or your Javascript UI team is already using **YADA**, and needs a Java® plugin to post-process data it's retrieving from a third party.
 
-# Features
+## Features
 
 - Data vendor- and technology-agnostic
 - Accesses any JDBC, SOAP, or REST, and some Filesystem datasources
@@ -185,26 +183,26 @@ Maybe you have to provide a RESTful interface to an existing application, and ne
 
 <a name="arch"></a>
 
-# Architecture
+## Architecture
 
 A quick overview of the architecture
 
-## Generic
+### Generic
 
 About as basic as it can be...
-![generic architecture](src/site/resources/images/generic-arch.png 'Generic Architecture')
+![generic architecture](https://github.com/Novartis/YADA/raw/master/src/site/resources/images/generic-arch.png 'Generic Architecture')
 
-## Specific
+### Specific
 
 ...and a little bit more specific:
 
 > Note the image indicates Tomcat 6. It should be Tomcat **7**
 
-![specific architecture](src/site/resources/images/specific-arch.png 'Specific Architecture')
+![specific architecture](https://github.com/Novartis/YADA/raw/master/src/site/resources/images/specific-arch.png 'Specific Architecture')
 
 <a name="history"></a>
 
-# History
+## History
 
 YADA grew organically from a reverse-engineering effort.
 
@@ -224,13 +222,13 @@ Soon thereafter, this perl utility was ported to Java®. The burgeoning framewor
 
 <a name="apps"></a>
 
-# YADA "Apps" and uses
+## YADA "Apps" and uses
 
 Most YADA "Apps" are [single-page Javascript applications](http://en.wikipedia.org/wiki/Single-page_application) running in web browsers. YADA is also heavily utilized by data analysts and bioinformaticians who need parameterized, delimited data subsets imported into their analysis tools such as R and Spotfire, or to be used by Perl or Python-based data processing pipelines.
 
 <a name="sources"></a>
 
-# Data Sources
+## Data Sources
 
 YADA ships with scripts for using, as the YADA Index:
 
@@ -250,31 +248,31 @@ MongoDB®, SQL Server®, and other datasource compatibility will be added soon.
 
 <a name="plugins"></a>
 
-# Plugins
+## Plugins
 
 For detailed information about plugin use and development, see the [Plugin Use and Development Guide].
 
 The plugin API is versatile. Plugins can be written in java, or in any scripting language supported on the YADA server. Plugins can be applied at the request level, affecting the entire request, or it's output, or at the query level, affecting just a single query in a request. The conceptual, or implementation hierarchy of the plugin API (not to be confused with the actual package hierarchy) is reflected in the diagram below, from two different perspectives.
 
-![Plugin Concept](src/site/resources/images/plugin-concept.png 'Plugin Concept')
+![Plugin Concept](https://github.com/Novartis/YADA/raw/master/src/site/resources/images/plugin-concept.png 'Plugin Concept')
 
-## Plugin Types
+### Plugin Types
 
-### Pre-Processors
+#### Pre-Processors
 
 These are intended to manipulate URL parameters, either by removing, appending, or modifying them.
 
-### Post-Processors
+#### Post-Processors
 
 These are intended to modify results returned by queries. For example, an XSL Post-Processor might accept XML-formatted results and transform them before returning the to the client. Uploaded file processors, i.e., batch handlers, are post-processors.
 
-### Bypassers
+#### Bypassers
 
 These circumvent conventional YADA query processing. Effectively, anything is possible in a Bypass. Bypass plugins are popular ETL tools and bulk data loaders.
 
 <a name="license"></a>
 
-# License
+## License
 
 Copyright &copy; 2016 [Novartis Institutes for Biomedical Research](http://opensource.nibr.com)
 
@@ -284,7 +282,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 <a name="issues"></a>
 
-## Known Issues (last updated 25-OCT-2015)
+### Known Issues (last updated 25-OCT-2015)
 
 - Date and time value syntax, just like in the real world, are database-vendor specific. Use vendor-specific literals and functions. Check the test queries for guidance.
 - Speaking of dates and times, right now the TestNG tests which validate date and time values pass only on machines in the "America/NewYork" timezone. This is likely because the insert statements used to put the test data into the test table is not specific.

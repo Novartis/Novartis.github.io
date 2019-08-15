@@ -15,8 +15,6 @@ description: |
   do not require a file system protocol interface and can use http(s) to access the store.
 ---
 
-# Habitat - Where files live
-
 ## Key features
 
 - Upload/download via http(s) from any client that can issue HTTP POST requests

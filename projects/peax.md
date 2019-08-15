@@ -9,7 +9,7 @@ description: |
   Peax is a tool for interactive concept learning and exploration of epigenomic patterns based on unsupervised machine learning with autoencoders.
 ---
 
-# Peax: a pattern explorer for epigenomic data
+> A pattern explorer for epigenomic data.
 
 ![Peax's UI](/projects/peax/teaser.png)
 
@@ -94,12 +94,12 @@ different datatypes. The required format for autoencoders is as follows:
 
 | Field        | Description                                                                                                                                   | Defaults | Dtype |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----- |
-| encoder      | Relative path to your pickled encoder model. (hdf5 file)                                                                                      |          | str   |
-| decoder      | Relative path to your pickled decoder model. (hdf5 file)                                                                                      |          | str   |
-| content_type | Unique string describing the content this autoencoder can handle. Data tracks with the same content type will be encoded by this autoencoder. |          | str   |
-| window_size  | Window size in base pairs used for training the autoencoder.                                                                                  |          | int   |
-| resolution   | Resolution or bin size of the window in base pairs.                                                                                           |          | int   |
-| latent_dim   | Number of latent dimensions of the encoded windows.                                                                                           |          | int   |
+| encoder      | Relative path to your pickled encoder model. (hdf5 file)                                                                                      | &nbsp;   | str   |
+| decoder      | Relative path to your pickled decoder model. (hdf5 file)                                                                                      | &nbsp;   | str   |
+| content_type | Unique string describing the content this autoencoder can handle. Data tracks with the same content type will be encoded by this autoencoder. | &nbsp;   | str   |
+| window_size  | Window size in base pairs used for training the autoencoder.                                                                                  | &nbsp;   | int   |
+| resolution   | Resolution or bin size of the window in base pairs.                                                                                           | &nbsp;   | int   |
+| latent_dim   | Number of latent dimensions of the encoded windows.                                                                                           | &nbsp;   | int   |
 | input_dim    | Number of input dimensions for Keras. For 1D data these are 3: samples, data length (which is `window_size` / `resolution`), channels.        | 3        | int   |
 | channels     | Number of channels of the input data. This is normally 1.                                                                                     | 1        | int   |
 

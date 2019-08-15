@@ -8,8 +8,6 @@ description: |
   Serialize high memory / disk consumption NumPy multidimensional arrays of images into JPEG-Pickle files for low storage cost and decently fast, random access with NumPy-like indexing.
 ---
 
-# JPkl - multidimensional image arrays to single JPEG-Pickles in Python
-
 Serialize high memory / disk consumption NumPy multidimensional arrays of images into JPEG-Pickle files for low storage cost and decently fast, random access with NumPy-like indexing.
 
 Code at a glance:

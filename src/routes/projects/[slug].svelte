@@ -93,10 +93,12 @@
 
 <style>
   .summary {
-    margin: 1em 0;
+    margin: 0 0 1em;
     padding: 1em;
     border-top: 3px solid black;
     transition: transform 200ms;
+    background-color: white;
+    box-shadow: -1em 0 white;
   }
 
 
@@ -126,12 +128,28 @@
   */
   .content :global(h1, h2, h3, h4, h5, h6) {
     margin: 0 0 0.5em 0;
-    font-weight: bold;
     line-height: 1.2;
   }
 
+  h1, .content :global(h1) {
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+
   .content :global(h2) {
-    font-size: 1.4em;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  .content :global(:not(h1)) + :global(h2) {
+    border-top: 1px solid black;
+    padding-top: 1em;
+    margin-top: 1em;
+  }
+
+  .content :global(h3) {
+    color: #0460A9;
   }
 
   .content :global(pre) {
