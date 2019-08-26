@@ -23,5 +23,9 @@ jobs:
         env:
           CI: true
       - name: deploy
-        run: npm run deploy
+        uses: peaceiris/actions-gh-pages@v1.1.0
         if: github.ref == 'refs/heads/source'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: master
+          PUBLISH_DIR: ./__sapper__/export
