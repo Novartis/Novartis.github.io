@@ -12,6 +12,7 @@
     "start": "node build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
+    "deploy": "gh-pages -d __sapper__/export",
     "test": "run-p --race dev cy:run"
   },
   "dependencies": {
@@ -24,6 +25,7 @@
   "devDependencies": {
     "execa": "^2.0.3",
     "express": "^4.17.1",
+    "gh-pages": "^2.1.1",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
     "npm-run-all": "^4.1.2",
