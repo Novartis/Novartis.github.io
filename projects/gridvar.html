@@ -43,49 +43,39 @@ onDestroy: |
 </p>
 
 <div id="tissueSampleOrder" class="btn-group">
-  <button
-    type="button"
-    class="btn btn-default dropdown-toggle"
-    data-toggle="dropdown"
-  >
-    <span class="glyphicon glyphicon-transfer"></span> Order Tissue Samples
-    (Columns) By... <span class="caret"></span>
-  </button>
+  <label>Order Tissue Samples (Columns) By...</label>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a class="nibr-pointer" id="tissueTopSort"
-        >Top gene set mutation frequency</a
-      >
+      <a role="button" class="nibr-pointer" id="tissueTopSort">
+        Top gene set mutation frequency
+      </a>
     </li>
     <li>
-      <a class="nibr-pointer" id="tissueGlobalSort"
-        >Global gene set mutation frequency</a
-      >
+      <a role="button" class="nibr-pointer" id="tissueGlobalSort">
+        Global gene set mutation frequency
+      </a>
     </li>
   </ul>
 </div>
 
 <div class="btn-group">
-  <button
-    type="button"
-    class="btn btn-default dropdown-toggle"
-    data-toggle="dropdown"
-  >
-    <span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Order Genes
-    (Rows) By... <span class="caret"></span>
-  </button>
+  <label>Order Genes (Rows) By...</label>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a class="nibr-pointer" id="geneMissenseMutationSort"
-        >Missense mutations only</a
-      >
+      <a role="button" class="nibr-pointer" id="geneMissenseMutationSort">
+        Missense mutations only
+      </a>
     </li>
     <li>
-      <a class="nibr-pointer" id="geneNonSynonymousMutationSort"
-        >Other Non-synonymous mutations only</a
-      >
+      <a role="button" class="nibr-pointer" id="geneNonSynonymousMutationSort">
+        Other Non-synonymous mutations only
+      </a>
     </li>
-    <li><a class="nibr-pointer" id="geneAllMutationSort">All mutations</a></li>
+    <li>
+      <a role="button" class="nibr-pointer" id="geneAllMutationSort">
+        All mutations
+      </a>
+    </li>
   </ul>
 </div>
 

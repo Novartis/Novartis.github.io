@@ -1,5 +1,5 @@
 <style>
-.btn {
+.btn, :global(a[role="button"]) {
   border: 1px solid black;
   background-color: white;
   color: black;
@@ -13,8 +13,10 @@
   padding: 0.25em 0.75em;
 
   white-space: nowrap;
+
+  cursor: pointer;
 }
-.btn:hover {
+.btn:hover, :global(a[role="button"]:hover) {
   background-color: black;
   color: white;
 }

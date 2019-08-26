@@ -37,23 +37,23 @@ These related Jenkins-LSCI jobs enable users to:
 
 ### OS_CONTRIBUTE_PIPELINE
 
-The �OS_CONTRIBUTE_PIPELINE� job allows users to annotate and upload a CellProfiler pipeline to the Jenkins server. The build generates a pipeline summary report combining user and internal pipeline annotations. The pipeline is stored on the Jenkins server and can be used by CellProfiler running on a remote cluster or workstation, or on the user�s desktop.
+The `OS_CONTRIBUTE_PIPELINE` job allows users to annotate and upload a CellProfiler pipeline to the Jenkins server. The build generates a pipeline summary report combining user and internal pipeline annotations. The pipeline is stored on the Jenkins server and can be used by CellProfiler running on a remote cluster or workstation, or on the user's desktop.
 
 ### OS_CONTRIBUTE_IMAGELIST
 
-The �OS_CONTRIBUTE_IMAGELIST� job facilitates the creation and management of correctly formatted image lists that can be used for processing large number of images through a CellProfiler pipeline. Image processing is highly dependent on image acquisition and experimental metadata (wavelengths, plates, wells, fields, time-points, Z-stacks etc.) We support the direct parsing of metadata generated during the image acquisition phase from the **InCell** and **Yokogawa** scientific imagers.
+The `OS_CONTRIBUTE_IMAGELIST` job facilitates the creation and management of correctly formatted image lists that can be used for processing large number of images through a CellProfiler pipeline. Image processing is highly dependent on image acquisition and experimental metadata (wavelengths, plates, wells, fields, time-points, Z-stacks etc.) We support the direct parsing of metadata generated during the image acquisition phase from the **InCell** and **Yokogawa** scientific imagers.
 
-In the absence of instrument metadata, image lists can be created using the CellProfiler desktop client. These image lists can then be easily adapted using the �OS_CONTRIBUTE_IMAGELIST� job to formats compatible with high performance cluster analysis.
+In the absence of instrument metadata, image lists can be created using the CellProfiler desktop client. These image lists can then be easily adapted using the `OS_CONTRIBUTE_IMAGELIST` job to formats compatible with high performance cluster analysis.
 
 ### OS_CELLPROFILER_BATCH
 
-The �OS_CELLPROFILER_BATCH� job allows users to generate correctly formatted CellProfiler task array scripts that can be submitted to a Linux cluster for parallel processing. The job builds take as input a reference to an �OS_CONTRIBUTE_PIPELINE� build and a reference to an �OS_CONTRIBUTE_IMAGELIST� build. Theses builds define the two inputs for a typical CellProfiler run, the image processing pipeline and the image list.
+The `OS_CELLPROFILER_BATCH` job allows users to generate correctly formatted CellProfiler task array scripts that can be submitted to a Linux cluster for parallel processing. The job builds take as input a reference to an `OS_CONTRIBUTE_PIPELINE` build and a reference to an `OS_CONTRIBUTE_IMAGELIST` build. Theses builds define the two inputs for a typical CellProfiler run, the image processing pipeline and the image list.
 
 The task array script is currently formatted for the [UNIVA grid engine](http://www.univa.com/products/) scheduler and it should require little effort to customize for other cluster schedulers. However, due to the non-standardized, local, Linux cluster environment and installed software dependencies, the task array submission process is left up to the user. In addition, CellProfiler and its library dependencies must be installed and correctly working on the destination Linux cluster.
 
 ### OS_CELLPROFILER_JCLUSTBATCH
 
-The �OS_CELLPROFILER_JCLUSTBATCH� job is an example CellProfiler on cluster job that includes the steps for, creating task arrays, submitting them to the UNIVA grid engine, monitoring the task array execution, and finally merging the individual CellProfiler task output generated on the Linux cluster.
+The `OS_CELLPROFILER_JCLUSTBATCH` job is an example CellProfiler on cluster job that includes the steps for, creating task arrays, submitting them to the UNIVA grid engine, monitoring the task array execution, and finally merging the individual CellProfiler task output generated on the Linux cluster.
 
 Due to its high dependency on the Novartis cluster infrastructure this job is unlikely to run unmodified on other Linux clusters, but it provides a useful and complete exemplar on how Jenkins-LSCI is used to integrate a complex workflow and monitor an external job.
 
@@ -65,9 +65,9 @@ If you would like to quickly [test drive Jenkins-CI](https://wiki.jenkins-ci.org
 
 A fully functional Jenkins-LSCI server supporting CellProfiler image analysis requires the installation and configuraton of the following software components:
 
-1.  A mirror of the Jenkins-LSCI project code (from git)
-2.  [Jenkins-CI](https://jenkins.io/) and required Jenkins plugins
-3.  [CellProfiler](http://cellprofiler.org)
+1. A mirror of the Jenkins-LSCI project code (from git)
+2. [Jenkins-CI](https://jenkins.io/) and required Jenkins plugins
+3. [CellProfiler](http://cellprofiler.org)
 
 Please, refer to the [Jenkins-LSCI Installation and Usage](./userContent/docs/installation_and_use.html) for more details
 

@@ -142,7 +142,7 @@
     font-weight: 400;
   }
 
-  .content :global(:not(h1)) + :global(h2) {
+  .content :global(:not(h1):not(hr)) + :global(h2) {
     border-top: 1px solid black;
     padding-top: 1em;
     margin-top: 1em;
