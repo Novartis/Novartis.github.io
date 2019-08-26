@@ -12,7 +12,7 @@
     "start": "node build",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "deploy": "gh-pages -d __sapper__/export",
+    "deploy": "gh-pages -d __sapper__/export -b master",
     "test": "run-p --race dev cy:run"
   },
   "dependencies": {
