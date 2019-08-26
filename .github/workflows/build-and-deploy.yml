@@ -18,11 +18,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install, build, and test
         run: |
-          echo ${{ github.ref }}
           npm install
           npm run export
         env:
           CI: true
       - name: deploy
         run: npm run deploy
-        if: github.ref == 'source'
+        if: github.ref == 'refs/heads/source'
