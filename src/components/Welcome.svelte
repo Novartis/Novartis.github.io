@@ -76,5 +76,5 @@ const { session } = stores();
       Read about our work
     </a>
   </div>
-  <div class="bg" style="background-image: url('{$session.basepath}/novartis-robot.png');" />
+  <div class="bg" style="background-image: url('{$session.basepath}/novartis-robot.jpg');" />
 </div>
