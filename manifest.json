@@ -1,0 +1,21 @@
+{
+  "background_color": "#ffffff",
+  "theme_color": "#0460A9",
+  "name": "NIBR Open Source Initiative",
+  "short_name": "NIBR Open Source",
+  "display": "minimal-ui",
+  "start_url": "/",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16",
+      "type": "image/ico"
+    },
+    {
+      "src": "/novartis-290.png",
+      "sizes": "290x290",
+      "type": "image/png"
+    }
+  ]
+}
