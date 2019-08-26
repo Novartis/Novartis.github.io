@@ -20,6 +20,7 @@ jobs:
         run: |
           npm install
           npm run export
+          echo opensource.nibr.com > ./__sapper__/export/CNAME
         env:
           CI: true
       - name: deploy
