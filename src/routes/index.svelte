@@ -37,7 +37,7 @@
   <meta property="og:title" content="NIBR Open Source">
   <meta property="og:description" content="We believe in the power of open-sourced, global collaboration for the greater good.">
   <meta property="og:image" content="https://opensource.nibr.com/social-preview.png">
-  <meta property="og:url" content="https://opensource.nibr.com/social-preview.png">
+  <meta property="og:url" content="https://opensource.nibr.com/">
   <meta name="twitter:card" content="summary_large_image">
 <meta property="og:site_name" content="NIBR Open Source">
 </svelte:head>
