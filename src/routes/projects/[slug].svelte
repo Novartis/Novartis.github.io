@@ -126,7 +126,12 @@
 		so we have to use the :global(...) modifier to target
 		all elements inside .content
   */
-  .content :global(h1, h2, h3, h4, h5, h6) {
+  .content :global(h1),
+  .content :global(h2),
+  .content :global(h3),
+  .content :global(h4),
+  .content :global(h5),
+  .content :global(h6) {
     margin: 0 0 0.5em 0;
     line-height: 1.2;
   }

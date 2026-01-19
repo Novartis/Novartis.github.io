@@ -70,7 +70,7 @@ const { session } = stores();
 
 <div class="wrapper">
   <div class="callout">
-    <h2>NIBR Open Source</h2>
+    <h2>Novartis Open Source</h2>
     <p><slot></slot></p>
     <a href="https://novartis.com/" target="_blank" rel="nofollow noreferrer">
       Read about our work

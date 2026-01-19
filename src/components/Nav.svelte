@@ -77,7 +77,7 @@
       <a
         class:selected={!segment}
         href={$session.basepath}
-        >NIBR Open Source</a
+        >Novartis Open Source</a
       >
     </li>
   </ul>

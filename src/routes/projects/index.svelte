@@ -23,7 +23,7 @@
 </style>
 
 <svelte:head>
-	<title>NIBR Open Source | Projects</title>
+	<title>Novartis Open Source | Projects</title>
 </svelte:head>
 
 <h1>Recent projects</h1>

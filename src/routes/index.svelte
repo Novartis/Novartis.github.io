@@ -33,17 +33,17 @@
 </style>
 
 <svelte:head>
-  <title>NIBR Open Source</title>
-  <meta property="og:title" content="NIBR Open Source">
+  <title>Novartis Open Source</title>
+  <meta property="og:title" content="Novartis Open Source">
   <meta property="og:description" content="We believe in the power of open-sourced, global collaboration for the greater good.">
   <meta property="og:image" content="https://opensource.nibr.com/social-preview.png">
   <meta property="og:url" content="https://opensource.nibr.com/">
   <meta name="twitter:card" content="summary_large_image">
-  <meta property="og:site_name" content="NIBR Open Source">
+  <meta property="og:site_name" content="Novartis Open Source">
 </svelte:head>
 
 <Welcome>
-  The Novartis Institutes for BioMedical Research (NIBR) is pioneering new informatics tools for drug discovery. We believe in the power of open-sourced, global collaboration for the greater good. Join us to help patients worldwide.
+  Novartis is pioneering new informatics tools for drug discovery. We believe in the power of open-sourced, global collaboration for the greater good. Join us to help patients worldwide.
 </Welcome>
 
 <div class="page-content">

@@ -23,8 +23,8 @@ import Button from './Button';
 <div class="callout">
   <div class="callout-content">
     <slot>
-      <h2>Interested in NIBR Engineering?</h2>
-      <p>At NIBR, you'll be at the forefront of technology &mdash; helping to shape it, develop it, and make it impactful. Partnering with scientists, our engineers create cutting-edge, state-of-the-art solutions that accelerate drug discovery and ultimately improve patients’ lives.</p>
+      <h2>Interested in Novartis Engineering?</h2>
+      <p>At Novartis, you'll be at the forefront of technology &mdash; helping to shape it, develop it, and make it impactful. Partnering with scientists, our engineers create cutting-edge, state-of-the-art solutions that accelerate drug discovery and ultimately improve patients' lives.</p>
       <Button variant="primary" href="https://www.novartis.com/careers/careers-research" target="_blank" rel="nofollow noopener">Learn more</Button>
     </slot>
   </div>

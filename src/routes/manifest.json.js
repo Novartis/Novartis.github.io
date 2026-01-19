@@ -15,8 +15,8 @@ export function get(req, res) {
   res.end(JSON.stringify({
     "background_color": "#ffffff",
     "theme_color": "#0460A9",
-    "name": "NIBR Open Source Initiative",
-    "short_name": "NIBR Open Source",
+    "name": "Novartis Open Source Initiative",
+    "short_name": "Novartis Open Source",
     "display": "minimal-ui",
     "start_url": req.session.forArtifactory ? `${basepath}/index.html` : basepath,
     scope,
